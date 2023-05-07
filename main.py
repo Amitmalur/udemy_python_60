@@ -17,17 +17,20 @@ while True:
             item = item.capitalize()
             print(f"{index+1}-{item}")
     elif user_action.startswith("edit"):
-        todo_number = int(user_action[5:])
-        todo_number = todo_number-1
-        with open("todos.txt", "r") as file:
-            todos = file.readlines()
-        print("Here is todos existing", todos)
+        try:
+            todo_number = int(user_action[5:])
+            todo_number = todo_number-1
+            with open("todos.txt", "r") as file:
+                todos = file.readlines()
+            print("Here is todos existing", todos)
 
-        new_todo = input("Enter new ToDo item:")
-        todos[todo_number] = new_todo + "\n"
-        with open('todos.txt', 'w') as file:
-            file.writelines(todos)
-
+            new_todo = input("Enter new ToDo item:")
+            todos[todo_number] = new_todo + "\n"
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
+        except ValueError:
+            print("Your command is not Valid")
+            continue
     elif user_action.startswith("complete"):
         todo_number = int(user_action[8:])
         with open("todos.txt", "r") as file:
