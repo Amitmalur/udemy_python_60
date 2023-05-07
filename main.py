@@ -41,7 +41,7 @@ while True:
 
         message = f"ToDo {todo_to_remove} was removed from the list"
 
-    elif 'exit' in user_action:
+    elif user_action.startswith("exit"):
         break
     else:
         print("Command is not valid")
