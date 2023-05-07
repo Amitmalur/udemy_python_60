@@ -3,10 +3,9 @@ while True:
     user_action = user_action.strip()
     if user_action.startswith("add"):
         todo = user_action[4:]
-        todo = todo + "\n"
         with open("todos.txt", "r") as file:
             todos = file.readlines()
-        todos.append(todo)
+        todos.append(todo + "\n")
         with open('todos.txt', 'w') as file:
             file.writelines(todos)
     elif user_action.startswith("show"):
@@ -32,17 +31,22 @@ while True:
             print("Your command is not Valid")
             continue
     elif user_action.startswith("complete"):
-        todo_number = int(user_action[8:])
-        with open("todos.txt", "r") as file:
-            todos = file.readlines
-        todo_number = todo_number-1
-        todo_to_remove = todos[todo_number].strip("\n")
-        todos.pop(todo_number)
+        try:
+            todo_number = int(user_action[9:])
+            with open("todos.txt", "r") as file:
+                todos = file.readlines()
+            todo_number = todo_number-1
+            todo_to_remove = todos[todo_number].strip("\n")
+            todos.pop(todo_number)
 
-        with open('todos.txt', 'w') as file:
-            file.writelines(todos)
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
 
-        message = f"ToDo {todo_to_remove} was removed from the list"
+            message = f"ToDo {todo_to_remove} was removed from the list"
+            print(message)
+        except IndexError:
+            print("There is no Item with that number.")
+            continue
 
     elif user_action.startswith("exit"):
         break
