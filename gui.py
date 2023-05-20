@@ -35,9 +35,7 @@ while True:
             window["items"].update(values=todos)
         case "items":
             window["todo"].update(value=values["items"][0])
-
         case sg.WIN_CLOSED:
             break
-
 
 window.close()
