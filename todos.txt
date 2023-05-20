@@ -1,5 +1,7 @@
-Make Pizza
 Make Sambar
-Make Pizza
-Make Burger
+Bake Pizza
 Go to Party
+Buy Veggies
+Add Item
+Buy Rice
+Buy Masala
