@@ -1,7 +1,3 @@
-Sleep
-Play
-Buy Grocery
-Cook
 Go Out
-Clean the BagGo for a WalkFix the lamp
 Feed the Cat
+Fixed the code
